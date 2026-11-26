@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Фильм или сериал — CINEVIBE</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sansation:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+
+    <body>
+        <div class="paper-grain"></div>
+        <header class="topbar">
+            <a class="brand" href="/"
+                ><img
+                    class="brand-logo"
+                    src="/img/iconlogo.png"
+                    alt=""
+                    width="100"
+                    height="100"
+                />CINEVIBE</a
+            >
+            <nav aria-label="Основная навигация">
+                <a href="/">КАТАЛОГ</a>
+                <a href="/pages/profile.html" class="auth-only hidden"
+                    >МОЙ ПРОФИЛЬ</a
+                >
+                <a href="/pages/admin.html" class="admin-only hidden">АДМИН</a>
+            </nav>
+            <div class="account-actions">
+                <button id="login-open" class="outline">ВОЙТИ</button
+                ><button id="register-open" class="solid">РЕГИСТРАЦИЯ</button
+                ><button id="logout" class="outline hidden">ВЫЙТИ</button>
+            </div>
+        </header>
+        <main id="app">
+            <div class="detail-wrap">
+                <p id="title-status" role="status">Загрузка карточки…</p>
+                <a class="back" href="/#catalog-list">← НАЗАД В КАТАЛОГ</a>
+                <section id="title-content" class="detail-card hidden">
+                    <div>
+                        <img
+                            id="title-poster"
+                            class="detail-poster hidden"
+                            alt=""
+                        />
+                        <div
+                            id="poster-placeholder"
+                            class="detail-poster poster-placeholder"
+                        >
+                            CINE<br />VIBE
+                        </div>
+                    </div>
+                    <div>
+                        <p id="title-type" class="eyebrow"></p>
+                        <h1 id="title-name"></h1>
+                        <span id="title-rating" class="rating"></span>
+                        <span id="title-review-count" class="muted"></span>
+                        <p class="detail-meta">
+                            <span id="film-meta"
+                                ><b>Длительность:</b>
+                                <span id="title-duration"></span><br
+                            /></span>
+                            <span id="serial-meta">
+                                <b>Сезоны:</b> <span id="title-seasons"></span
+                                ><br />
+                                <b>Серии:</b> <span id="title-episodes"></span
+                                ><br />
+                            </span>
+                            <b>Страна:</b> <span id="title-country"></span
+                            ><br />
+                            <b>Издатель / студия:</b>
+                            <span id="title-publisher"></span><br />
+                            <b>Возраст:</b> <span id="title-age"></span><br />
+                            <b>Жанры:</b> <span id="title-genres"></span><br />
+                            <b>Актёры:</b> <span id="title-actors"></span><br />
+                            <b>Режиссёры:</b> <span id="title-directors"></span>
+                        </p>
+                        <p
+                            id="title-description"
+                            class="detail-description"
+                        ></p>
+                        <div id="member-actions" class="hidden">
+                            <div class="list-actions">
+                                <button class="action-btn" data-list="favorite">
+                                    В избранное
+                                </button>
+                                <button class="action-btn" data-list="watched">
+                                    Просмотрено
+                                </button>
+                                <button class="action-btn" data-list="planned">
+                                    В планы
+                                </button>
+                            </div>
+                            <button class="solid" id="write-review">
+                                НАПИСАТЬ ОТЗЫВ
+                            </button>
+                        </div>
+                        <p id="guest-actions" class="muted">
+                            Войдите, чтобы оценивать и сохранять фильмы.
+                        </p>
+                    </div>
+                </section>
+                <div class="page-art detail-art">
+                    <img
+                        src="/img/image8.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                    <img
+                        src="/img/image9.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                </div>
+                <section id="review-area" class="review-area hidden">
+                    <h2>ОТЗЫВЫ / <span id="reviews-count">0</span></h2>
+                    <div class="filters">
+                        <select
+                            id="spoiler-filter"
+                            aria-label="Фильтр по спойлерам"
+                        >
+                            <option value="safe">Без спойлеров</option>
+                            <option value="all">Все отзывы</option>
+                            <option value="spoiler">
+                                Только со спойлерами
+                            </option>
+                        </select>
+                    </div>
+                    <div id="reviews-list"></div>
+                </section>
+            </div>
+        </main>
+        <div id="modal-root"></div>
+        <div id="toast" class="toast" role="status"></div>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="pixel">CINEVIBE</p>
+                <p class="muted">
+                    Твой киножурнал. Смотри. Чувствуй. Обсуждай.
+                </p>
+            </div>
+            <p class="muted" style="font-size: 11px">
+                © 2026 CINEVIBE. Все права защищены.
+            </p>
+        </footer>
+        <script type="module" src="/js/title.js"></script>
+    </body>
+</html>

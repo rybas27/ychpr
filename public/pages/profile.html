@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Мой профиль — CINEVIBE</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sansation:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+
+    <body>
+        <div class="paper-grain"></div>
+        <header class="topbar">
+            <a class="brand" href="/"
+                ><img
+                    class="brand-logo"
+                    src="/img/iconlogo.png"
+                    alt=""
+                    width="100"
+                    height="100"
+                />CINEVIBE</a
+            >
+            <nav aria-label="Основная навигация">
+                <a href="/">КАТАЛОГ</a>
+                <a
+                    href="/pages/profile.html"
+                    aria-current="page"
+                    class="auth-only hidden"
+                    >МОЙ ПРОФИЛЬ</a
+                >
+                <a href="/pages/admin.html" class="admin-only hidden">АДМИН</a>
+            </nav>
+            <div class="account-actions">
+                <button id="login-open" class="outline">ВОЙТИ</button
+                ><button id="register-open" class="solid">РЕГИСТРАЦИЯ</button
+                ><button id="logout" class="outline hidden">ВЫЙТИ</button>
+            </div>
+        </header>
+        <main id="app">
+            <p id="profile-status" role="status">Загрузка профиля…</p>
+            <div class="profile-wrap hidden">
+                <div class="profile-head">
+                    <img class="avatar" id="profile-avatar" alt="" />
+                    <div>
+                        <p class="eyebrow">ТВОЯ КИНОИСТОРИЯ</p>
+                        <h2 id="profile-name">Мой профиль</h2>
+                        <p id="profile-email" class="muted"></p>
+                    </div>
+                    <button class="outline" id="edit-profile">
+                        РЕДАКТИРОВАТЬ
+                    </button>
+                </div>
+                <div class="page-art">
+                    <img
+                        src="/img/image10.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                    <img
+                        src="/img/image11.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                </div>
+                <div class="profile-tabs">
+                    <button class="action-btn" data-tab="favorite">
+                        ИЗБРАННОЕ <span data-count="favorite"></span>
+                    </button>
+                    <button class="action-btn" data-tab="watched">
+                        ПРОСМОТРЕНО <span data-count="watched"></span>
+                    </button>
+                    <button class="action-btn" data-tab="planned">
+                        В ПЛАНАХ <span data-count="planned"></span>
+                    </button>
+                    <button class="action-btn" data-tab="reviews">
+                        МОИ ОТЗЫВЫ <span data-count="reviews"></span>
+                    </button>
+                </div>
+                <div id="profile-content"></div>
+                <div class="admin-panel">
+                    <h3>АККАУНТ</h3>
+                    <p class="muted">
+                        Удаление аккаунта необратимо. Ваши отзывы, реакции и
+                        списки будут удалены из базы данных.
+                    </p>
+                    <button class="action-btn danger" id="delete-account">
+                        УДАЛИТЬ АККАУНТ
+                    </button>
+                </div>
+            </div>
+        </main>
+        <div id="modal-root"></div>
+        <div id="toast" class="toast" role="status"></div>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="pixel">CINEVIBE</p>
+                <p class="muted">
+                    Твой киножурнал. Смотри. Чувствуй. Обсуждай.
+                </p>
+            </div>
+            <p class="muted" style="font-size: 11px">
+                © 2026 CINEVIBE. Все права защищены.
+            </p>
+        </footer>
+        <script type="module" src="/js/profile.js"></script>
+    </body>
+</html>

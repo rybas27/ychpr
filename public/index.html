@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Каталог — CINEVIBE</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sansation:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+
+    <body>
+        <div class="paper-grain"></div>
+        <header class="topbar">
+            <a class="brand" href="/"
+                ><img
+                    class="brand-logo"
+                    src="/img/iconlogo.png"
+                    alt=""
+                    width="100"
+                    height="100"
+                />CINEVIBE</a
+            >
+            <nav aria-label="Основная навигация">
+                <a href="/" aria-current="page">КАТАЛОГ</a>
+                <a href="/pages/profile.html" class="auth-only hidden"
+                    >МОЙ ПРОФИЛЬ</a
+                >
+                <a href="/pages/admin.html" class="admin-only hidden">АДМИН</a>
+            </nav>
+            <div class="account-actions">
+                <button id="login-open" class="outline">ВОЙТИ</button
+                ><button id="register-open" class="solid">РЕГИСТРАЦИЯ</button
+                ><button id="logout" class="outline hidden">ВЫЙТИ</button>
+            </div>
+        </header>
+        <main id="app">
+            <section class="hero">
+                <div class="hero-sticker">
+                    <img src="/img/image1.webp" alt="" />
+                </div>
+                <p class="eyebrow">КИНО. МНЕНИЯ. ТВОЯ ВОЛНА.</p>
+                <h1>СМОТРИ.<br /><span>ЧУВСТВУЙ.</span><br />ОБСУЖДАЙ.</h1>
+                <p class="hero-copy">
+                    Твой личный уголок мира кино — выбирай, оценивай, сохраняй и
+                    делись впечатлениями.
+                </p>
+                <a href="#catalog-list" class="big-cta">ОТКРЫТЬ КАТАЛОГ ↘</a>
+                <div class="hero-scribble">
+                    <img src="/img/image2.webp" alt="" />
+                </div>
+                <img class="hero-gif" src="/img/gif1.webp" alt="" />
+                <div class="hero-collage">
+                    <img
+                        src="/img/image3.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                    <img
+                        src="/img/image4.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                    <img
+                        src="/img/image5.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                </div>
+            </section>
+            <section id="catalog-list" class="catalog-section">
+                <div class="filmstrip-heading">
+                    <div>
+                        <p class="eyebrow">ПОДБОРКА CINEVIBE</p>
+                        <h2>ЛЕНТА РЕКОМЕНДАЦИЙ</h2>
+                    </div>
+                    <span class="filmstrip-arrows">
+                        <button id="film-left" aria-label="Прокрутить влево">
+                            ←
+                        </button>
+                        <button id="film-right" aria-label="Прокрутить вправо">
+                            →
+                        </button></span
+                    >
+                </div>
+                <div class="film-frame">
+                    <div id="recommend-strip" class="recommend-strip">
+                        <div class="strip-empty">
+                            Здесь появятся фильмы из каталога
+                        </div>
+                    </div>
+                </div>
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">
+                            ПОИСК СВОЕГО СЛЕДУЮЩЕГО ВПЕЧАТЛЕНИЯ
+                        </p>
+                        <h2>КАТАЛОГ<span class="red">_</span></h2>
+                    </div>
+                </div>
+                <form id="catalog-filters" class="filters" role="search">
+                    <input
+                        id="search"
+                        name="q"
+                        aria-label="Поиск по каталогу"
+                        placeholder="Название, актёр, режиссёр..."
+                    />
+                    <select id="type-filter" name="type" aria-label="Тип">
+                        <option value="">Все типы</option>
+                        <option>Фильм</option>
+                        <option>Сериал</option>
+                    </select>
+                    <input
+                        id="genre-filter"
+                        name="genre"
+                        aria-label="Жанр"
+                        placeholder="Жанр"
+                    />
+                    <input
+                        id="country-filter"
+                        name="country"
+                        aria-label="Страна"
+                        placeholder="Страна"
+                    />
+                    <input
+                        id="publisher-filter"
+                        name="publisher"
+                        aria-label="Издатель или студия"
+                        placeholder="Издатель / студия"
+                    />
+                    <select
+                        id="age-filter"
+                        name="age"
+                        aria-label="Возрастное ограничение"
+                    >
+                        <option value="">Любой возраст</option>
+                        <option>0+</option>
+                        <option>6+</option>
+                        <option>12+</option>
+                        <option>16+</option>
+                        <option>18+</option>
+                    </select>
+                    <input
+                        id="min-duration"
+                        name="minDuration"
+                        aria-label="Минимальная длительность"
+                        type="number"
+                        min="1"
+                        placeholder="От минут"
+                    />
+                    <input
+                        id="max-duration"
+                        name="maxDuration"
+                        aria-label="Максимальная длительность"
+                        type="number"
+                        min="1"
+                        placeholder="До минут"
+                    />
+                    <input
+                        id="min-year"
+                        name="minYear"
+                        aria-label="Год от"
+                        type="number"
+                        placeholder="Год от"
+                    />
+                    <input
+                        id="max-year"
+                        name="maxYear"
+                        aria-label="Год до"
+                        type="number"
+                        placeholder="Год до"
+                    />
+                    <select
+                        id="min-rating"
+                        name="minRating"
+                        aria-label="Минимальный рейтинг"
+                    >
+                        <option value="0">Любой рейтинг</option>
+                        <option value="5">От 5</option>
+                        <option value="7">От 7</option>
+                        <option value="8">От 8</option>
+                        <option value="9">От 9</option>
+                    </select>
+                    <select
+                        id="sort-filter"
+                        name="sort"
+                        aria-label="Сортировка"
+                    >
+                        <option value="new">Сначала новые</option>
+                        <option value="year">По году</option>
+                        <option value="rating">По рейтингу</option>
+                    </select>
+                    <button
+                        type="reset"
+                        id="reset-filters"
+                        class="filter-reset"
+                    >
+                        СБРОСИТЬ ФИЛЬТРЫ
+                    </button>
+                </form>
+                <div class="catalog-art">
+                    <img
+                        src="/img/image6.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                    <img
+                        src="/img/image7.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                </div>
+                <div id="catalog-grid" class="movie-grid" aria-live="polite">
+                    <p>Загрузка каталога…</p>
+                </div>
+            </section>
+        </main>
+        <div id="modal-root"></div>
+        <div id="toast" class="toast" role="status"></div>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="pixel">CINEVIBE</p>
+                <p class="muted">
+                    Твой киножурнал. Смотри. Чувствуй. Обсуждай.
+                </p>
+            </div>
+            <p class="muted" style="font-size: 11px">
+                © 2026 CINEVIBE. Все права защищены.
+            </p>
+        </footer>
+        <script type="module" src="/js/catalog.js"></script>
+    </body>
+</html>

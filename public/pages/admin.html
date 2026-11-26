@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Панель администратора — CINEVIBE</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sansation:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+
+    <body>
+        <div class="paper-grain"></div>
+        <header class="topbar">
+            <a class="brand" href="/"
+                ><img
+                    class="brand-logo"
+                    src="/img/iconlogo.png"
+                    alt=""
+                    width="100"
+                    height="100"
+                />CINEVIBE</a
+            >
+            <nav aria-label="Основная навигация">
+                <a href="/">КАТАЛОГ</a>
+                <a href="/pages/profile.html" class="auth-only hidden"
+                    >МОЙ ПРОФИЛЬ</a
+                >
+                <a
+                    href="/pages/admin.html"
+                    aria-current="page"
+                    class="admin-only hidden"
+                    >АДМИН</a
+                >
+            </nav>
+            <div class="account-actions">
+                <button id="login-open" class="outline">ВОЙТИ</button
+                ><button id="register-open" class="solid">РЕГИСТРАЦИЯ</button
+                ><button id="logout" class="outline hidden">ВЫЙТИ</button>
+            </div>
+        </header>
+        <main id="app">
+            <p id="admin-status" role="status">Загрузка панели…</p>
+            <div class="admin-wrap hidden">
+                <h2>ПАНЕЛЬ АДМИНИСТРАТОРА<span class="red">_</span></h2>
+                <div class="admin-panel">
+                    <h3>ДОБАВИТЬ ФИЛЬМ / СЕРИАЛ</h3>
+                    <form id="add-title">
+                        <div class="field">
+                            <label>Тип</label>
+                            <select name="type">
+                                <option>Фильм</option>
+                                <option>Сериал</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Название</label>
+                            <input name="name" required />
+                        </div>
+                        <div class="field">
+                            <label>Год выпуска</label>
+                            <input
+                                name="year"
+                                type="number"
+                                min="1888"
+                                max="2031"
+                                required
+                            />
+                        </div>
+                        <div class="field">
+                            <label>Длительность фильма / серии (минуты)</label>
+                            <input name="duration" type="number" min="0" />
+                        </div>
+                        <div class="field serial-fields">
+                            <label>Количество сезонов</label>
+                            <input name="season_count" type="number" min="1" />
+                        </div>
+                        <div class="field serial-fields">
+                            <label>Количество серий (всего)</label>
+                            <input name="episode_count" type="number" min="1" />
+                        </div>
+                        <div class="field">
+                            <label>Страна</label>
+                            <input name="country" maxlength="100" />
+                        </div>
+                        <div class="field">
+                            <label>Издатель / студия</label>
+                            <input name="publisher" maxlength="160" />
+                        </div>
+                        <div class="field">
+                            <label>Возрастное ограничение</label>
+                            <select name="age_rating">
+                                <option>0+</option>
+                                <option>6+</option>
+                                <option>12+</option>
+                                <option>16+</option>
+                                <option>18+</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Жанры (через запятую)</label>
+                            <input name="genres" required />
+                        </div>
+                        <div class="field">
+                            <label>Актёры</label>
+                            <input name="actors" required />
+                        </div>
+                        <div class="field">
+                            <label>Режиссёры</label>
+                            <input name="directors" required />
+                        </div>
+                        <div class="field">
+                            <label>Описание</label>
+                            <textarea name="description" required></textarea>
+                        </div>
+                        <div class="field">
+                            <label>Ссылка на постер / фото</label>
+                            <input
+                                name="image"
+                                type="url"
+                                placeholder="https://example.com/poster.jpg"
+                                maxlength="500"
+                            />
+                        </div>
+                        <button class="form-submit">ДОБАВИТЬ В КАТАЛОГ</button>
+                    </form>
+                </div>
+                <div class="page-art">
+                    <img
+                        src="/img/image12.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                    <img
+                        src="/img/image13.webp"
+                        loading="lazy"
+                        decoding="async"
+                        alt=""
+                    />
+                </div>
+                <div class="admin-panel">
+                    <h3>
+                        МОДЕРАЦИЯ ОТЗЫВОВ · <span id="pending-count">0</span>
+                    </h3>
+                    <div id="pending-list"></div>
+                </div>
+                <div class="admin-panel">
+                    <h3>УПРАВЛЕНИЕ КАТАЛОГОМ</h3>
+                    <div id="admin-titles"></div>
+                </div>
+            </div>
+        </main>
+        <div id="modal-root"></div>
+        <div id="toast" class="toast" role="status"></div>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="pixel">CINEVIBE</p>
+                <p class="muted">
+                    Твой киножурнал. Смотри. Чувствуй. Обсуждай.
+                </p>
+            </div>
+            <p class="muted" style="font-size: 11px">
+                © 2026 CINEVIBE. Все права защищены.
+            </p>
+        </footer>
+        <script type="module" src="/js/admin.js"></script>
+    </body>
+</html>
